@@ -1,2 +1,2 @@
 # RosaCompiler
-A compiler for my own programming language made in C++.
+A compiler for my own programming language made in C++ with LLVM.
