@@ -2,7 +2,10 @@
 #define AST_H 
 
 // Base class for all expressions.
-class ExpressionAST {};
+class ExpressionAST {
+public:
+  virtual Value *codegen() = 0;
+};
 
 // Expression class for number literals.
 class NumberExpressionAST : public ExpressionAST {
