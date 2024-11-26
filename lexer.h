@@ -1,12 +1,20 @@
-// Lexer header file
 #ifndef LEXER_H
 #define LEXER_H 
 
-enum Token : signed int; 
+// https://en.wikipedia.org/wiki/Lexical_analysis
+// Lexical Tokens
+// Had to be defined in the header file due to incomplete type errors.
+enum Token : signed int {
+  Identifier = -1,
+  Number = -2,
+  EndOfFile = -3,
+  Function = -4,
+  Extern = -5,
+};
 
-static std::string IdentifierString;
-static double NumberValue;
+extern std::string IdentifierString;
+extern double NumberValue;
 
-static int GetToken();
+int GetToken();
 
 #endif

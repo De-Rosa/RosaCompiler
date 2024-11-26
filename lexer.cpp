@@ -1,21 +1,10 @@
 #include <string>
 #include "lexer.h"
 
-// https://en.wikipedia.org/wiki/Lexical_analysis
-// Lexical Tokens
-enum Token : signed int {
-  Identifier = -1,
-  Number = -2,
-  EndOfFile = -3,
-  Function = -4,
-};
+std::string IdentifierString;
+double NumberValue;
 
-static std::string IdentifierString;
-static double NumberValue;
-
-// Lexer courtesy of https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/LangImpl01.html
-//
-static int GetToken() {
+int GetToken() {
   // Get first non-whitespace character.
   static int LastChar = ' ';
   while (isspace(LastChar))
@@ -29,6 +18,7 @@ static int GetToken() {
 
     // Check if the identifier string is equal to the function identifier. 
     if (IdentifierString == "function") return Token::Function;
+    if (IdentifierString == "extern") return Token::Extern;
     // Otherwise, return a generic identifier. 
     return Token::Identifier;
   }
